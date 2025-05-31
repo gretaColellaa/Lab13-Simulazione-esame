@@ -24,10 +24,10 @@ class View(ft.UserControl):
         self._title = ft.Text("TdP Lab 13 - simulazione esame", color="blue", size=24)
         self._page.controls.append(self._title)
 
-        self._ddAnno = ft.Dropdown(label="Anno", width=200, alignment=ft.alignment.top_left, on_change=self._controller.handleDDYearSelection)
+        self._ddAnno = ft.Dropdown(label="Anno")
         self._btnCreaGrafo = ft.ElevatedButton(text="Vittorie Piloti", on_click=self._controller.handleCreaGrafo)
 
-        #self._controller.fillDDYear()
+        self._controller.fillDDYear()
 
         cont = ft.Container(self._ddAnno, width=250, alignment=ft.alignment.top_left)
         row1 = ft.Row([cont, self._btnCreaGrafo], alignment=ft.MainAxisAlignment.CENTER,
