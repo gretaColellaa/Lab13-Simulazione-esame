@@ -27,8 +27,13 @@ class Controller:
 
 
     def handleCerca(self, e):
-        pass
-
+        try: int(self._view._txtIntK.value)
+        except: self._view.create_alert("Inserire un numero intero")
+        k= int(self._view._txtIntK.value)
+        team, sconfitte =self._model.cercaDreamTeam(k)
+        self._view.txt_result.controls.append(ft.Text(f"Best Team è composto da: {team} con un tasso di "
+                                                      f"sconfitte pari a: {sconfitte}"))
+        self._view.update_page()
 
     def fillDDYear(self):
         anni = self._model.getAnni()
